@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Product Maintenance</title>
+</head>
+
+<body>
+    <h1>Product</h1>
+    <p>You must enter a description for the product.</p>
+	<form method="POST" th:object="${product}" th:action="@{/productMaint1/updateProduct}">
+		<label for="code">Product Code: </label>
+		<input name="code" type="text" th:value="${product.code}" readonly/>
+		<br>
+		<label for="description">Product Description: </label>
+		<input name="description" type="text" th:value="${product.description}" />
+		<br>
+		<label for="price">Product Price: </label>
+		<input name="price" type="number" step="any" th:value="${product.price}" />
+		<br>
+		<button>Update</button>
+	</form>
+	<a th:href="@{/productMaint1/displayProducts}">View Products</a>
+</body>
+
+</html>
